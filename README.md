@@ -46,8 +46,8 @@ The application leverages Twilio for handling voice-based interactions, Eleven L
 
 1. Ensure you have the required environment variables set:
    - `NGROK_URL`
-   - `FROM_NUMBER`
-   - `TO_NUMBER`
+   - `FROM_NUMBER` needs to be Twilio Number
+   - `TO_NUMBER`needs to be Twilio Verified Number
    - `ELEVEN_LABS_TOKEN`
    - `ELEVENT_LABS_VOICE_ID`
    - `TWILIO_ACCOUNT_SID`
