@@ -1,0 +1,8 @@
+<% @conversations.each do |conversation| %>
+    <div class="comment">
+      <div class="comment-text">
+        <%= link_to conversation.id, "/inbox/#{conversation.id}" %>
+        <div class="comment-date"><%= conversation.created_at %></div>
+      </div>
+    </div>
+  <% end %>

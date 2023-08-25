@@ -1,0 +1,10 @@
+<% @messages.each do |message|%>
+    <div class="comment">
+        <div class="comment-avatar"></div>
+        <div class="comment-author">Caller: <%= message.caller %></div>
+        <div class="comment-text">
+          <%= message.body  %>
+            <div class="comment-date"><%= message.created_at %></div>
+        </div>
+    </div>
+<% end %>

@@ -1,0 +1,42 @@
+body {
+    font-family: "PT Sans", sans-serif;
+    font-size: 14px;
+    color: #777777;
+}
+
+.comment {
+    position: relative;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 50px;
+}
+
+.comment-avatar {
+    width: 70px;
+    height: 70px;
+    background: #7f8c8c url("http://icons.iconarchive.com/icons/icons8/windows-8/48/Mobile-Phone-icon.png") no-repeat 50% 50%;
+    position: absolute;
+    left: -40px;
+    top: 0;
+}
+
+.comment-author {
+    margin-bottom: 5px;
+    padding-left: 45px;
+    padding-right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.comment-text {
+    padding: 12px;
+    padding-left: 45px;
+    background-color: #f8f8f8;
+    border-bottom: 5px solid #e5e6e6;
+}
+
+.comment-date {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #bdc3c7;
+}
