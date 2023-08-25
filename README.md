@@ -77,11 +77,13 @@ The application leverages Twilio for handling voice-based interactions, Eleven L
 - The application assumes you have an ngrok setup for local development to expose your local server to the internet.
 - The `voice_cloner_enabled` config determines if the voice cloning feature is enabled.
 
+## Loom Demo
+
+https://www.loom.com/share/94ae1e58309c48a3a521adeca98feaf7
+
 ## Future Intentions
 
 1. **Integration with Google Calendar**: This will allow the AI assistant to schedule, reschedule, or cancel appointments based on the conversation with the user.
 2. **User Input on Tasks**: Enhance the AI assistant's capabilities by allowing users to define specific tasks. For instance, a user could instruct the assistant with a task like "book a barbershop appointment", and the assistant would handle the rest, potentially even making calls on behalf of the user to fulfill such requests.
 
-
-https://www.loom.com/share/94ae1e58309c48a3a521adeca98feaf7
 
