@@ -1,6 +1,8 @@
 # Twilio AI Assistant with Voice Cloning
 
-This application integrates Twilio for voice-based interactions, Eleven Labs for voice cloning, and OpenAI for AI assistant functionality.
+This application serves as a bridge between traditional phone calls and modern AI capabilities. When a user makes a phone call, the application redirects the call to an AI assistant powered by OpenAI's ChatGPT. This assistant engages in a conversation with the caller, generating human-like text responses based on the ongoing conversation. All interactions during the call, including the messages exchanged, are stored for reference.
+
+The application leverages Twilio for handling voice-based interactions, Eleven Labs for voice cloning to provide a more human-like auditory experience, and OpenAI for the core AI assistant functionality.
 
 ## Features
 
@@ -75,5 +77,11 @@ This application integrates Twilio for voice-based interactions, Eleven Labs for
 - The application assumes you have an ngrok setup for local development to expose your local server to the internet.
 - The `voice_cloner_enabled` config determines if the voice cloning feature is enabled.
 
+## Future Intentions
 
+1. **Integration with Google Calendar**: This will allow the AI assistant to schedule, reschedule, or cancel appointments based on the conversation with the user.
+2. **User Input on Tasks**: Enhance the AI assistant's capabilities by allowing users to define specific tasks. For instance, a user could instruct the assistant with a task like "book a barbershop appointment", and the assistant would handle the rest, potentially even making calls on behalf of the user to fulfill such requests.
+
+
+https://www.loom.com/share/94ae1e58309c48a3a521adeca98feaf7
 
