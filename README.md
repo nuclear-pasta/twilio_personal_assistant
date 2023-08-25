@@ -1,24 +1,79 @@
-# README
+# Twilio AI Assistant with Voice Cloning
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application integrates Twilio for voice-based interactions, Eleven Labs for voice cloning, and OpenAI for AI assistant functionality.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+1. **Twilio Integration**: Allows users to make and receive calls.
+2. **Voice Cloning with Eleven Labs**: Converts text to speech with a specific voice.
+3. **AI Assistant with OpenAI**: Provides AI assistant functionality using OpenAI's GPT-3.5-turbo model.
 
-* System dependencies
+## Controllers
 
-* Configuration
+### TwilioController
 
-* Database creation
+- `create`: Handles incoming calls, processes speech results, and responds with either an AI assistant message or a goodbye message.
+- `index`: Default endpoint for incoming calls.
+- `make_call`: Test endpoint to initiate a call.
 
-* Database initialization
+### InboxController
 
-* How to run the test suite
+- `index`: Lists all conversations.
+- `show`: Displays messages for a specific conversation.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Services
 
-* Deployment instructions
+### VoiceCloner
 
-* ...
+- Uses the Eleven Labs API to convert text to speech.
+- Requires `ELEVEN_LABS_TOKEN` and `ELEVENT_LABS_VOICE_ID` environment variables.
+- **Note**: The `ELEVENT_LABS_VOICE_ID` needs to be created from the UI on the Eleven Labs website by training it with audio messages of the desired voice. Once trained, you can retrieve the `voice_id` and store it in an environment variable. The voice cloning process has inherent latency as it requires generating the audio, downloading it, and then sending the link.
+
+### TwilioService
+
+- Handles Twilio-related operations like generating speech responses and initiating calls.
+- Requires `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` environment variables.
+- **Note**: Twilio provides a robotic speech-to-text feature that can be used for faster conversations without the need for voice cloning.
+
+### ChatService (AI Assistant Service)
+
+- Uses OpenAI's GPT-3.5-turbo model to generate AI assistant responses.
+- Requires `OPEN_AI_TOKEN` environment variable.
+
+## Setup
+
+1. Ensure you have the required environment variables set:
+   - `NGROK_URL`
+   - `FROM_NUMBER`
+   - `TO_NUMBER`
+   - `ELEVEN_LABS_TOKEN`
+   - `ELEVENT_LABS_VOICE_ID`
+   - `TWILIO_ACCOUNT_SID`
+   - `TWILIO_AUTH_TOKEN`
+   - `OPEN_AI_TOKEN`
+
+2. Run the ngrok command: ngrok http 3000. This will expose your local server to the internet. Copy the generated URL and store it in the `NGROK_URL` environment variable.
+
+3. Install required gems: bundle install
+
+4. Run the application: rails server
+
+5. Use the `make_call` endpoint to test the call functionality.
+
+6. Configure your Twilio webhook: Navigate to [Twilio's Console](https://console.twilio.com/us1/develop/phone-numbers/manage/incoming) and set the webhook for the active number to the URL you stored in `NGROK_URL` followed by `/messages`. Any incoming call to the registered number will be redirected to the `index` action of `TwilioController`.
+
+## Views
+
+### Inbox
+
+- `GET /inbox`: Lists all conversations.
+- `GET /inbox/:id`: Displays messages for a specific conversation.
+
+## Notes
+
+- Ensure you have the required gems installed, such as `twilio-ruby`, `httparty`, and `openai`.
+- The application assumes you have an ngrok setup for local development to expose your local server to the internet.
+- The `voice_cloner_enabled` config determines if the voice cloning feature is enabled.
+
+
+
