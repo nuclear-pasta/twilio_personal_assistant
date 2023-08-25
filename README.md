@@ -1,8 +1,12 @@
 # Twilio AI Assistant with Voice Cloning
 
+## Overview
+
 This application serves as a bridge between traditional phone calls and modern AI capabilities. When a user makes a phone call, the application redirects the call to an AI assistant powered by OpenAI's ChatGPT. This assistant engages in a conversation with the caller, generating human-like text responses based on the ongoing conversation. All interactions during the call, including the messages exchanged, are stored for reference.
 
-The application leverages Twilio for handling voice-based interactions, Eleven Labs for voice cloning to provide a more human-like auditory experience, and OpenAI for the core AI assistant functionality.
+## Prototype Disclaimer
+
+It's important to note that this application currently stands as a prototype, a proof of concept showcasing the potential of integrating voice-based AI into traditional phone calls. While the foundation and functionalities are in place, the current version experiences significant latency in the audio generation process, making real-time interactions challenging. This latency, although a limitation in this prototype, serves as a testament to the possibilities ahead. As technologies and integrations evolve, future iterations aim to overcome this challenge, paving the way for seamless and real-time AI-powered voice interactions.
 
 ## Features
 
@@ -46,7 +50,7 @@ The application leverages Twilio for handling voice-based interactions, Eleven L
 
 1. Ensure you have the required environment variables set:
    - `NGROK_URL`
-   - `FROM_NUMBER` needs to be Twilio Number
+   - `FROM_NUMBER` needs to be Twilio purchased Number
    - `TO_NUMBER`needs to be Twilio Verified Number
    - `ELEVEN_LABS_TOKEN`
    - `ELEVENT_LABS_VOICE_ID`
@@ -85,5 +89,6 @@ https://www.loom.com/share/94ae1e58309c48a3a521adeca98feaf7
 
 1. **Integration with Google Calendar**: This will allow the AI assistant to schedule, reschedule, or cancel appointments based on the conversation with the user.
 2. **User Input on Tasks**: Enhance the AI assistant's capabilities by allowing users to define specific tasks. For instance, a user could instruct the assistant with a task like "book a barbershop appointment", and the assistant would handle the rest, potentially even making calls on behalf of the user to fulfill such requests.
+3. **WebSocket for Speed**: To further optimize the user experience, I'm exploring the integration of WebSockets to expedite audio generation. However, a notable challenge is that Twilio's WebSocket service doesn't natively support their transcript service. This means I'll be diving into integrating a separate transcription service to ensure seamless functionality.
 
 
